@@ -45,7 +45,7 @@ const HeroSection = () => {
         <div className="h-12 flex items-center justify-between w-screen mx-6">
           <div onClick={()=>{scrollToSection('top')}} className="mt-1 flex items-center h-full cursor-pointer">
             <Logo/>
-            <p className="ml-1 h-full py-[10px]">aocto labs</p>
+            <p className="ml-1 h-full py-[10px] select-none">aocto labs</p>
           </div>
           {/* desktop view */}
           <div className="hidden md:flex md:space-x-6 px-4 lg:space-x-10">
@@ -80,7 +80,7 @@ const HeroSection = () => {
           <a href="#team" className="block rounded-lg py-3 px-2 hover:bg-gray-900">Team</a>
         </nav>
         <div className="md:hidden mx-1 mt-5">
-          <a href="#login" className="block py-3 px-2 hover:bg-gray-900">Login</a>
+          <a href="#login" className="block rounded-lg py-3 px-2 hover:bg-gray-900">Login</a>
           <a href="#contact" onClick={()=>{scrollToSection('contact-us')}} className="border border-white h-10 w-fit px-2.5 mt-2 hover:bg-white hover:text-black transition-colors flex items-center inline-block text-center block rounded-xl">Contact Us</a>
         </div>
       </div>
