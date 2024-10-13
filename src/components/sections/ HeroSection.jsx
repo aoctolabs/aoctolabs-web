@@ -43,9 +43,8 @@ const HeroSection = () => {
     <>
       <header className={`${showNavBar ? "translate-y-0" : "-translate-y-full"} sticky top-0 z-50 backdrop-blur-xl backdrop-brightness-75 border-b border-b-white h-16 sm:h-20 flex items-center justify-center transition-transform duration-500 ${isOpen ? "translate-y-0" : ""}`}>
         <div className="h-12 flex items-center justify-between w-screen mx-6">
-          <div onClick={()=>{scrollToSection('top')}} className="mt-1 flex items-center h-full cursor-pointer">
+          <div onClick={()=>{scrollToSection('top')}} className="flex h-full cursor-pointer">
             <Logo/>
-            <p className="ml-1 h-full py-[10px] select-none">aocto labs</p>
           </div>
           {/* desktop view */}
           <div className="hidden md:flex md:space-x-6 px-4 lg:space-x-10">
@@ -87,10 +86,12 @@ const HeroSection = () => {
       <div className="w-full h-96 md:h-screen flex justify-center">
         <div className="w-screen flex flex-col items-center justify-center gap-y-4">
           <div className="w-full flex justify-center">
-            <h1 className="text-center text-4xl sm:text-6xl md:text-7xl lg:text-8xl flex jusify-center items-center font-bold">Just One Platform,<br/>More Digital Options</h1>
+            <h1 className="text-center text-4xl sm:text-6xl md:text-7xl lg:text-8xl flex jusify-center items-center font-bold select-none">Just One Platform,<br/>More Digital Options</h1>
           </div>
           <p className="mt-2 hidden md:block text-base text-[rgba(162,154,154,0.4)] px-10 text-center w-[500px]">Navigating the digital landscape for success by Creating solutions for creative designings</p>
-          <button className="bg-[rgba(71,28,195,1)] w-36 h-12 mt-5 md:mt-3 rounded-3xl font-semibold">Get on the call</button>
+          <a href="https://x.com/aoctolabs">
+            <button className="bg-[rgba(71,28,195,1)] w-36 h-12 mt-5 md:mt-3 rounded-3xl font-semibold">Get on the call</button>
+          </a>
         </div>
       </div>
     </>
