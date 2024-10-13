@@ -9,9 +9,11 @@ const Card = ({ title, description }) => (
       {description}
     </p>
     <div className="mt-auto">
-      <button className="bg-transparent border border-gray-600 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-2xl hover:bg-white hover:text-black transition-colors text-sm z-10 md:text-lg">
-        Get Support
-      </button>
+      <a href="https://x.com/aoctolabs">
+        <button className="bg-transparent border border-gray-600 text-white py-2 px-4 sm:py-3 sm:px-6 rounded-2xl hover:bg-white hover:text-black transition-colors text-sm z-10 md:text-lg">
+          Get Support
+        </button>
+      </a>
     </div>
   </div>
 );

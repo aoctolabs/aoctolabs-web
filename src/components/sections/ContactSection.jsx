@@ -7,11 +7,11 @@ export default function Footer() {
         <div className="flex justify-between items-center mb-8 px-2">
           <div className="flex items-center">
             <svg
-              className="w-6 h-6 mr-2"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M12 2L1 21h22L12 2zm0 3.83L19.13 19H4.87L12 5.83z" />
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 97.63 85"
+              className="w-6 h-6 mr-2 fill-current text-white">
+              <path d="M96.87,7.72L60.33,67H46.62L79,14.14a2.24,2.24,0,0,0,0-2.29,2.22,2.22,0,0,0-2-1.16H48.42L13.7,67H0L41.06,0h51.5A5,5,0,0,1,97,2.6,5,5,0,0,1,96.87,7.72Z"/>
+              <path d="M90,74.27L82.05,85H20.44A4,4,0,0,1,17,79L53.39,17.8,66.47,18,35.72,70a2.76,2.76,0,0,0,2.37,4.17Z"/>
             </svg>
             <span className="text-lg font-semibold">aocto labs</span>
           </div>
@@ -43,9 +43,9 @@ export default function Footer() {
                 <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
               </svg>
             </a>
-            <a href="#" aria-label="Twitter">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+            <a href="https://x.com/aoctolabs" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="fill-current w-6 h-6">
+                <path d="M14.095479,10.316482L22.286354,1h-1.940718l-7.115352,8.087682L7.551414,1H1l8.589488,12.231093L1,23h1.940717l7.509372-8.542861L16.448587,23H23L14.095479,10.316482z M11.436522,13.338465l-0.871624-1.218704l-6.924311-9.68815h2.981339l5.58978,7.82155l0.867949,1.218704l7.26506,10.166271h-2.981339L11.436522,13.338465z"/>
               </svg>
             </a>
           </div>
@@ -53,7 +53,7 @@ export default function Footer() {
         <h2 className="text-[#471CC3] font-bold mb-4 px-2">Contact us:</h2>
         <div className="flex flex-col md:flex-row justify-between px-2">
           <div className="mb-8 md:mb-0 flex flex-col gap-4">
-            <p>Email: info@aoctolabs.com</p>
+            <p>Email: aoctolabs@gmail.com</p>
             <p>Phone: 555-567-8901</p>
             <div>
               <p>Address: 1234 Main St</p>
