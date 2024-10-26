@@ -9,21 +9,26 @@ const HeroSection = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
   const controllNavBar = () => {
-    if (window.scrollY > lastScrollY) {
-      setShowNavBar(false);
-    } else {
-      setShowNavBar(true);
+    if (typeof window !== "undefined") {
+      if (window.scrollY > lastScrollY) {
+        setShowNavBar(false);
+      } else {
+        setShowNavBar(true);
+      }
+      setLastScrollY(window.scrollY);
     }
-    setLastScrollY(window.scrollY);
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", controllNavBar);
-    return () => {
-      window.removeEventListener("scroll", controllNavBar);
-    };
-  }, [lastScrollY]);
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", controllNavBar);
+      return () => {
+        window.removeEventListener("scroll", controllNavBar);
+      };
+    }
+  }, [lastScrollY, controllNavBar]);
 
   const scrollToSection = (section) => {
     setIsOpen(false);
@@ -95,7 +100,7 @@ const HeroSection = () => {
       <header
         className={`${
           showNavBar ? "translate-y-0" : "-translate-y-full"
-        } sticky top-0 z-50 backdrop-blur-xl backdrop-brightness-75 h-16 sm:h-20 flex items-center justify-center transition-transform duration-500 ${
+        } fixed w-full top-0 z-50 backdrop-blur-xl backdrop-brightness-75 h-16 sm:h-20 flex items-center justify-center transition-transform duration-500 ${
           isOpen ? "translate-y-0" : ""
         }`}
       >
@@ -120,20 +125,42 @@ const HeroSection = () => {
             >
               Services
             </a>
-            <a href="#pricing" className="hover:text-gray-400">
+            <a
+              href="#pricing"
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection("pricing");
+              }}
+              className="hover:text-gray-400"
+            >
               Pricing
             </a>
-            <a href="#client" className="hover:text-gray-400">
+            <a
+              href="#client"
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection("client");
+              }}
+              className="hover:text-gray-400"
+            >
               Clients
             </a>
-            <a href="#team" className="hover:text-gray-400">
+            <a
+              href="#team"
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection("team");
+              }}
+              className="hover:text-gray-400"
+            >
               Team
             </a>
           </div>
           <div className="hidden md:flex space-x-3 mr-3 items-center">
             <a
               href="#contact"
-              onClick={() => {
+              onClick={(event) => {
+                event.preventDefault();
                 scrollToSection("contact-us");
               }}
               className="border border-white h-10 px-2.5 rounded-3xl hover:bg-white hover:text-black transition-colors flex items-center inline-block text-center"
@@ -170,39 +197,60 @@ const HeroSection = () => {
           </a>
           <a
             href="#pricing"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection("pricing");
+            }}
             className="block rounded-lg py-3 px-2 hover:bg-gray-900"
           >
             Pricing
           </a>
-          <a
+          {/* <a
             href="#howItWorks"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection("howItWorks");
+            }}
             className="block rounded-lg py-3 px-2 hover:bg-gray-900"
           >
             How it Works
-          </a>
+          </a> */}
           <a
             href="#client"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection("client");
+            }}
             className="block rounded-lg py-3 px-2 hover:bg-gray-900"
           >
             Client
           </a>
           <a
             href="#team"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection("team");
+            }}
             className="block rounded-lg py-3 px-2 hover:bg-gray-900"
           >
             Team
           </a>
         </nav>
         <div className="md:hidden mx-1 mt-5">
-          <a
+          {/* <a
             href="#login"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection("login");
+            }}
             className="block rounded-lg py-3 px-2 hover:bg-gray-900"
           >
             Login
-          </a>
+          </a> */}
           <a
             href="#contact"
-            onClick={() => {
+            onClick={(event) => {
+              event.preventDefault();
               scrollToSection("contact-us");
             }}
             className="border border-white h-10 w-fit px-2.5 mt-2 hover:bg-white hover:text-black transition-colors flex items-center inline-block text-center block rounded-xl"
@@ -217,19 +265,97 @@ const HeroSection = () => {
         <div className="w-screen flex flex-col items-center justify-center">
           <div className="w-full flex justify-center mb-4 md:mb-6">
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold select-none text-white leading-tight md:leading-snug">
-              <span className="block text-center">Just One Platform,</span>
-              <span className="block text-center">More Digital Options</span>
+              <span className="block text-center mb-2 md:mb-4">
+                Just One Platform,
+              </span>
+              <span className="block text-center relative">
+                <span className="relative">
+                  More
+                  <span className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full blur-3xl bg-gradient-to-r from-purple-600/30 to-cyan-600/30" />
+                </span>{" "}
+                <span className="bg-gradient-to-r from-purple-500 to-cyan-500 text-transparent bg-clip-text">
+                  Digital Options
+                </span>
+              </span>
             </h1>
           </div>
-          <p className="text-base text-[rgba(162,154,154,0.6)] px-6 md:px-10 text-center max-w-[500px] mb-6 md:mb-8">
-            Navigating the digital landscape for success by Creating solutions
-            for creative designings
-          </p>
-          <a href="https://x.com/aoctolabs">
-            <button className="bg-[rgba(71,28,195,1)] w-36 h-12 rounded-3xl font-semibold hover:bg-[rgba(81,38,205,1)] transition-colors hover:shadow-lg hover:shadow-[rgba(71,28,195,0.5)]">
-              Get on the call
-            </button>
-          </a>
+          <div className="relative">
+            <p className="text-lg md:text-xl text-gray-300/80 px-6 md:px-10 text-center max-w-[600px] mb-8 md:mb-10 mx-auto leading-relaxed">
+              Navigating the digital landscape for success by{" "}
+              <span className="font-semibold text-white">
+                creating innovative solutions
+              </span>{" "}
+              for{" "}
+              <span className="relative inline-block">
+                creative designs
+                <svg
+                  className="absolute -bottom-1 left-0 w-full"
+                  height="3"
+                  viewBox="0 0 200 4"
+                  fill="none"
+                >
+                  <path
+                    d="M2 2L198 2"
+                    stroke="url(#paint0_linear)"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <defs>
+                    <linearGradient
+                      id="paint0_linear"
+                      x1="2"
+                      y1="2"
+                      x2="198"
+                      y2="2"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stopColor="#A855F7" />
+                      <stop offset="1" stopColor="#06B6D4" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>
+            </p>
+            <div className="flex gap-4 justify-center items-center">
+              <a href="https://x.com/aoctolabs">
+                <button className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25">
+                  Get on the call
+                </button>
+              </a>
+            </div>
+            {/* <div className="mt-8 flex justify-center items-center gap-8 text-sm text-gray-400">
+              <div className="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-green-500"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>Free 14-day trial</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-green-500"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>No credit card required</span>
+              </div>
+            </div> */}
+          </div>
         </div>
       </div>
     </div>

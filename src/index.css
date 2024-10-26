@@ -10,3 +10,11 @@ body {
   color: #ffffff; /* White text color for contrast */
   margin: 0;
 }
+
+.translate-y-0 {
+  transform: translateY(0);
+}
+
+.-translate-y-full {
+  transform: translateY(-100%);
+}
