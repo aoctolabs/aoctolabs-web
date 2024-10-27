@@ -5,7 +5,6 @@ import Card from "../ui/Card";
 const FeatureSection = () => {
   const sectionRef = useRef(null);
 
-  // Intersection Observer for refined scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -25,10 +24,10 @@ const FeatureSection = () => {
   }, []);
 
   return (
-    <section
+    <div
       ref={sectionRef}
       id="services"
-      className="relative min-h-[90vh] bg-black selection:bg-white/10 selection:text-white"
+      className="relative min-h-[90vh] bg-black selection:bg-white/10 selection:text-white overflow-x-hidden"
     >
       {/* Advanced gradient mesh background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -47,7 +46,7 @@ const FeatureSection = () => {
       </div>
 
       {/* Main content container */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 py-24 md:py-32 lg:py-40">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 lg:py-40">
         {/* Enhanced section header */}
         <div className="relative text-center mb-20 md:mb-32">
           <span className="block text-white/50 text-sm font-medium tracking-widest uppercase mb-4">
@@ -128,7 +127,6 @@ const FeatureSection = () => {
           transition-delay: var(--delay);
         }
 
-        /* Optimize performance */
         @media (prefers-reduced-motion: reduce) {
           .animate-mesh,
           .animate-mesh-delayed,
@@ -141,7 +139,7 @@ const FeatureSection = () => {
           }
         }
       `}</style>
-    </section>
+    </div>
   );
 };
 
