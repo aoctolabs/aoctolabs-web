@@ -63,7 +63,9 @@ const HeroSection = () => {
           <div className="border border-white/5 backdrop-blur-xl bg-black/40 rounded-2xl mt-4 px-6 h-20 flex items-center">
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center space-x-8">
-                <Logo />
+                <a href="#">
+                  <Logo />
+                </a>
                 <nav className="hidden md:flex items-center space-x-2">
                   {["services", "pricing", "client", "team"].map((item) => (
                     <button
@@ -79,12 +81,14 @@ const HeroSection = () => {
               </div>
 
               <div className="hidden md:flex items-center space-x-6">
-                <button
-                  onClick={() => scrollToSection("contact-us")}
-                  className="px-6 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all"
-                >
-                  Get Started
-                </button>
+                <a href="https://x.com/aoctolabs" target="_blank">
+                  <button
+                    // onClick={() => scrollToSection("contact-us")}
+                    className="px-6 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all"
+                  >
+                    Get Started
+                  </button>
+                </a>
               </div>
 
               <button
@@ -123,12 +127,14 @@ const HeroSection = () => {
                       {item.charAt(0).toUpperCase() + item.slice(1)}
                     </button>
                   ))}
-                  <button
-                    onClick={() => scrollToSection("contact-us")}
-                    className="w-full mt-4 px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all"
-                  >
-                    Get Started
-                  </button>
+                  <a href="https://x.com/aoctolabs" target="_blank">
+                    <button
+                      // onClick={() => scrollToSection("contact-us")}
+                      className="w-full mt-4 px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all"
+                    >
+                      Get Started
+                    </button>
+                  </a>
                 </div>
               </nav>
             </div>
